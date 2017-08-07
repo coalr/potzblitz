@@ -1,9 +1,6 @@
 import requests  
 import datetime
 
-cimport requests  
-import datetime
-
 class BotHandler:
 
     def __init__(self, token):
