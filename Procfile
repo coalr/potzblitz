@@ -1,1 +1,1 @@
-web: python potzblitzbot.py
+web: python echobot2.py

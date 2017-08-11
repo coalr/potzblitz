@@ -1,6 +1,8 @@
 import requests  
 import datetime
 
+# http://djangostars.com/blog/how-to-create-and-deploy-a-telegram-bot/?utm_source=hackernoon&utm_medium=story
+
 class BotHandler:
 
     def __init__(self, token):
