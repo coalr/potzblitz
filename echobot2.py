@@ -68,12 +68,13 @@ def login(bot, update):
 def tips(bot, update):
     output = getTips('tobias.graml@ben-energy.com','123456')
     #update.message.reply_text(output)
-    keyboard = []
+    #keyboard = []
+    keyboard = [[InlineKeyboardButton("Nichts", callback_data=0)]]
     for tip in output:
         #output += tip["Title"] +" "
          keyboard.append([InlineKeyboardButton(tip["Title"], callback_data=tip["ID"])])
 
-    keyboard = keyboard.append([InlineKeyboardButton("Nichts", callback_data=0)])
+    #keyboard = keyboard.append([InlineKeyboardButton("Nichts", callback_data=0)])
     reply_markup = InlineKeyboardMarkup(keyboard)
     update.message.reply_text('Hast du etwas erledigt?:', reply_markup=reply_markup)
 
