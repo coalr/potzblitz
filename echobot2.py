@@ -72,7 +72,7 @@ def tips(bot, update):
     keyboard = [[InlineKeyboardButton("Nichts", callback_data="0")]]
     for tip in output:
         #output += tip["Title"] +" "
-         keyboard.append([InlineKeyboardButton(tip["Title"], callback_data=tip["ID"])])
+        keyboard.append([InlineKeyboardButton(tip["Title"], callback_data=str(tip["ID"]))])
 
     #keyboard = keyboard.append([InlineKeyboardButton("Nichts", callback_data=0)])
     reply_markup = InlineKeyboardMarkup(keyboard)
