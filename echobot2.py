@@ -69,7 +69,7 @@ def tips(bot, update):
     output = getTips('tobias.graml@ben-energy.com','123456')
     #update.message.reply_text(output)
     #keyboard = []
-    keyboard = [[InlineKeyboardButton("Nichts", callback_data=0)]]
+    keyboard = [[InlineKeyboardButton("Nichts", callback_data="0")]]
     for tip in output:
         #output += tip["Title"] +" "
          keyboard.append([InlineKeyboardButton(tip["Title"], callback_data=tip["ID"])])
