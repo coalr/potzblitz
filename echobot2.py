@@ -34,7 +34,6 @@ def getUserInformation(user, password):
     return surname
 
 def getTips(user, password):
-   
     response = requests.get('https://vkw.demo.ben-energy.com/api/v2/service/SavingTipWebService/getTips?token=c854c5371b84a30c8a459870189bd81a&status=promised', auth=HTTPBasicAuth(user, password))
     data = json.loads(response.text)
     promised = data["response"]["promised"]
@@ -69,7 +68,7 @@ def tips(bot, update):
     output = getTips('tobias.graml@ben-energy.com','123456')
     #update.message.reply_text(output)
     keyboard = []
-    for tip in ouput:
+    for tip in output:
         #output += tip["Title"] +" "
         keyboard = keyboard.append([InlineKeyboardButton(tip["Title"], callback_data=tip["ID"])])
 
