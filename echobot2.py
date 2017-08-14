@@ -38,11 +38,11 @@ def getTips(user, password):
     response = requests.get(' https://vkw.demo.ben-energy.com/api/v2/service/SavingTipWebService/getTips?token=c854c5371b84a30c8a459870189bd81a&status=promised', auth=HTTPBasicAuth(user, password))
     data = json.loads(response.text)
     promised = data["response"]["promised"]
-    return promised
+    output = promised
     #output = "Promised tips: "
     #for tip in promised:
     #    output += tip["Title"] +" "
-    #return output
+    return output
 
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
