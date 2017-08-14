@@ -14,8 +14,8 @@ Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler)
+from telegram import (InlineKeyboardButton, InlineKeyboardMarkup)
 import logging
 import requests
 import json
@@ -71,7 +71,7 @@ def tips(bot, update):
     keyboard = []
     for tip in output:
         #output += tip["Title"] +" "
-        keyboard.append([InlineKeyboardButton(tip["Title"], callback_data=tip["ID"])])
+         keyboard.append([InlineKeyboardButton(tip["Title"], callback_data=tip["ID"])])
 
     keyboard = keyboard.append([InlineKeyboardButton("Nichts", callback_data=0)])
     reply_markup = InlineKeyboardMarkup(keyboard)
