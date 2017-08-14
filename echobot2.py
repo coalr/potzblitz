@@ -35,7 +35,7 @@ def getUserInformation(user, password):
 
 def getTips(user, password):
    
-    response = requests.get(' https://vkw.demo.ben-energy.com/api/v2/service/SavingTipWebService/getTips?token=c854c5371b84a30c8a459870189bd81a&status=promised', auth=HTTPBasicAuth(user, password))
+    response = requests.get('https://vkw.demo.ben-energy.com/api/v2/service/SavingTipWebService/getTips?token=c854c5371b84a30c8a459870189bd81a&status=promised', auth=HTTPBasicAuth(user, password))
     data = json.loads(response.text)
     promised = data["response"]["promised"]
     output = promised
