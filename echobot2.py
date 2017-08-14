@@ -38,10 +38,11 @@ def getTips(user, password):
     response = requests.get(' https://vkw.demo.ben-energy.com/api/v2/service/SavingTipWebService/getTips?token=c854c5371b84a30c8a459870189bd81a&status=promised', auth=HTTPBasicAuth(user, password))
     data = json.loads(response.text)
     promised = data["response"]["promised"]
-    output = "Promised tips: "
-    for tip in promised:
-        output += tip["Title"] +" "
-    return output
+    return promised
+    #output = "Promised tips: "
+    #for tip in promised:
+    #    output += tip["Title"] +" "
+    #return output
 
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
@@ -66,8 +67,15 @@ def login(bot, update):
 
 def tips(bot, update):
     output = getTips('tobias.graml@ben-energy.com','123456')
-    update.message.reply_text(output)
+    #update.message.reply_text(output)
+    keyboard = []
+    for tip in ouput:
+        #output += tip["Title"] +" "
+        keyboard = keyboard.append([InlineKeyboardButton(tip["Title"], callback_data=tip["ID"])])
 
+    keyboard = keyboard.append([InlineKeyboardButton("Nichts", callback_data=0)])
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    update.message.reply_text('Hast du etwas erledigt?:', reply_markup=reply_markup)
 
 def main():
     # Create the EventHandler and pass it your bot's token.
