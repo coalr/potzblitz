@@ -78,6 +78,13 @@ def tips(bot, update):
     reply_markup = InlineKeyboardMarkup(keyboard)
     update.message.reply_text('Hast du etwas erledigt?:', reply_markup=reply_markup)
 
+def selection(bot, update):
+    query = update.callback_query
+
+    bot.edit_message_text(text="Erledigte Aktivität: %s" % query.data,
+                          chat_id=query.message.chat_id,
+                          message_id=query.message.message_id)
+
 def main():
     # Create the EventHandler and pass it your bot's token.
     updater = Updater("401178199:AAEYNJd-GZTUANZMyC3MRcU6_nlKxBhXBXw")
@@ -90,6 +97,7 @@ def main():
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("login", login))
     dp.add_handler(CommandHandler("tips", tips))
+    dp.add_handler(CallbackQueryHandler(selection))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
