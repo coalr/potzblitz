@@ -2,6 +2,7 @@ import requests
 import datetime
 
 # http://djangostars.com/blog/how-to-create-and-deploy-a-telegram-bot/?utm_source=hackernoon&utm_medium=story
+# https://api.telegram.org/bot401178199:AAEYNJd-GZTUANZMyC3MRcU6_nlKxBhXBXw/getUpdates
 
 class BotHandler:
 
